@@ -1,9 +1,32 @@
-That sounds odd. Could you describe that problem in more detail?
-No other customer has ever complained about this before. What is your system configuration?
-That sounds interesting. Tell me more...
+odd
+That sounds odd. 
+Could you describe that problem in more detail?
+
+config
+No other customer has ever complained about this before. 
+What is your system configuration?
+
+interesting
+That sounds interesting. 
+Tell me more...
+
+moreInfo
 I need a bit more information on that.
+
+dll
 Have you checked that you do not have a dll conflict?
-That is explained in the manual. Have you read the manual?
-Your description is a bit wishy-washy. Have you got an expert there with you who could describe this more precisely?
+
+manual
+That is explained in the manual. 
+Have you read the manual?
+
+wishy-washy
+Your description is a bit wishy-washy. 
+Have you got an expert there with you who could describe this more precisely?
+
+feature
 That's not a bug, it's a feature!
+
+elaborate
 Could you elaborate on that?
+

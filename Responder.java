@@ -34,7 +34,7 @@ public class Responder
     {
         responseMap = new HashMap<>();
         defaultResponses = new ArrayList<>();
-        fillResponseMap();
+        //fillResponseMap();
         fillDefaultResponses();
         randomGenerator = new Random();
     }
@@ -67,6 +67,8 @@ public class Responder
      */
     private void fillResponseMap()
     {
+        fillDefaultResponses();
+        /*
         responseMap.put("crash", 
                         "Well, it never crashes on our system. It must have something\n" +
                         "to do with your system. Tell me more about your configuration.");
@@ -112,7 +114,7 @@ public class Responder
         responseMap.put("bluej", 
                         "Ahhh, BlueJ, yes. We tried to buy out those guys long ago, but\n" +
                         "they simply won't sell... Stubborn people they are. Nothing we can\n" +
-                        "do about it, I'm afraid.");
+                        "do about it, I'm afraid.");*/
     }
 
     /**
@@ -125,8 +127,25 @@ public class Responder
         Path path = Paths.get(FILE_OF_DEFAULT_RESPONSES);
         try (BufferedReader reader = Files.newBufferedReader(path, charset)) {
             String response = reader.readLine();
+            String previousLine = "";
+            String response_key = "";
             while(response != null) {
-                defaultResponses.add(response);
+                String[] key_check = response.split(" ");
+                if (key_check.length == 1 && !response.isEmpty()){
+                    response_key = response;
+                }else {
+                    if (response.length()!=0){
+                        previousLine += response;
+                    } else if (response.isEmpty()){
+                        if (previousLine.length() != 0){
+                            responseMap.put(response_key,previousLine);
+                            defaultResponses.add(previousLine);
+                            previousLine = "";
+                            response_key = "";
+                        }
+                    }
+                }
+                
                 response = reader.readLine();
             }
         }
